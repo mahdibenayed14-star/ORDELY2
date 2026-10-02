@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/database.json
+data/database.json.tmp
+data/tts-cache/
+playwright-report/
+test-results/
+.DS_Store
+npm-debug.log*

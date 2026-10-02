@@ -1,0 +1,13 @@
+# Fins de ligne : LF partout dans le dépôt…
+* text=auto eol=lf
+# …sauf les scripts Windows, que CMD exige en CRLF sous peine de dysfonctionnement.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+# Fichiers binaires : jamais de conversion
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary

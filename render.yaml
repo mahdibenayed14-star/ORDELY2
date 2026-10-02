@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: ordely-demo
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ENABLE_DEMO_RESET
+        value: "true"
+      # Voix tunisienne derja (gratuit) : clé créée sur https://baarcha.tn/platform
+      # — laissez la valeur vide ici, saisissez-la dans le tableau de bord Render
+      #   (sync: false = Render demandera la valeur sans l'écrire dans le dépôt).
+      - key: BAARCHA_API_KEY
+        sync: false
+      # Facultatif : identifiant d'une voix Dido (« female » ou vc_…), sinon voix par défaut.
+      - key: BAARCHA_VOICE_ID
+        sync: false
+      # Secours gratuit et renouvelable : voix Azure ar-TN (offre F0, 500 000 caractères/mois).
+      - key: AZURE_SPEECH_KEY
+        sync: false
+      - key: AZURE_SPEECH_REGION
+        value: westeurope
+      # Cache disque de la voix : rejoue les phrases déjà rendues sans consommer de crédit.
+      - key: TTS_CACHE
+        value: "true"
